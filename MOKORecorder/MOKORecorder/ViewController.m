@@ -134,7 +134,7 @@
 {
     self.duration += kFakeTimerDuration;
     NSLog(@"+++duration+++ %f",self.duration);
-    float remainTime = kMaxRecordDuration-self.duration;
+    float remainTime = kMaxRecordDuration - self.duration;
     if ((int)remainTime == 0) {
         self.currentRecordState = MOKORecordState_Normal;
         [self dispatchVoiceState];
@@ -167,17 +167,14 @@
             float   amp             = powf(10.0f, 0.05f * decibels);
             float   adjAmp          = (amp - minAmp) * inverseAmpRange;
             level = powf(adjAmp, 1.0f / root);
-        }   
+        }
         
-        NSLog(@"平均值 %f", level );
-        //        NSLog(@"平均值 %f", level * 120);
-
         [self.voiceRecordCtrl updatePower:level];
     }
 }
 - (BOOL)shouldShowCounting
 {
-    if (self.duration >= (kMaxRecordDuration-kRemainCountingDuration) && self.duration < kMaxRecordDuration && self.currentRecordState != MOKORecordState_ReleaseToCancel) {
+    if (self.duration >= (kMaxRecordDuration - kRemainCountingDuration) && self.duration < kMaxRecordDuration && self.currentRecordState != MOKORecordState_ReleaseToCancel) {
         return YES;
     }
     return NO;

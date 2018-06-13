@@ -33,10 +33,7 @@
 }
 - (void)updateWithPower:(float)power
 {
-    int viewCount = ceil(fabs(power)*10);
-    
-    NSLog(@"viewCount --- %zd",viewCount);
-    
+    int viewCount = ceil(fabs(power) * 10);
     if (viewCount == 0) {
         viewCount++;
     }
